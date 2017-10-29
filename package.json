@@ -16,8 +16,8 @@
   "dependencies": {
     "axios": "^0.17.0",
     "nuxt": "^1.0.0-rc11",
-    "vue-timeago": "^3.4.0",
-    "vue2-filters": "^0.2.2"
+    "vue2-filters": "^0.2.2",
+    "vue-moment": "^2.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
