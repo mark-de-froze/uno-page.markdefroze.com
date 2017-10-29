@@ -14,7 +14,10 @@ const store = () => new Vuex.Store({
     },
     settings: [],
     links: [],
-    widgets: []
+    widgets: [],
+    posts: [],
+    post: [],
+    comments: []
   },
   mutations: {
     set (state, {type, data}) {
@@ -22,16 +25,16 @@ const store = () => new Vuex.Store({
     }
   },
   actions: {
-    async run ({commit}) {
-      let [settingsRes, widgetsRes, linksRes] = await Promise.all([
+    run ({commit}) {
+      return Promise.all([
         axios.get('/site/settings', {params: {api_key: process.env.apiKey}}),
         axios.get('/site/widgets', {params: {api_key: process.env.apiKey}}),
         axios.get('/site/links', {params: {api_key: process.env.apiKey}})
-      ])
-
-      commit('set', { type: 'settings', data: settingsRes.data })
-      commit('set', { type: 'widgets', data: widgetsRes.data })
-      commit('set', { type: 'links', data: linksRes.data })
+      ]).then((res) => {
+        commit('set', { type: 'settings', data: res[0].data })
+        commit('set', { type: 'widgets', data: res[1].data })
+        commit('set', { type: 'links', data: res[2].data })
+      })
     },
     sendMail ({state}) {
       axios.post('/site/mails', Object.assign(state.mail, {api_key: process.env.apiKey}))

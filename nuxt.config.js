@@ -3,6 +3,7 @@ module.exports = {
     apiUrl: 'http://pagekit.markdefroze.com/api/v1',
     apiKey: 'c03889ad4c2b6f0f64019f165f8e38f9'
   },
+  plugins: ['~plugins/moment'],
   /*
   ** Headers of the page
   */
