@@ -14,10 +14,7 @@ const store = () => new Vuex.Store({
     },
     settings: [],
     links: [],
-    widgets: [],
-    posts: [],
-    post: [],
-    comments: []
+    widgets: []
   },
   mutations: {
     set (state, {type, data}) {
