@@ -5,7 +5,7 @@
       <div class="uk-container">
         <h1>Shop</h1>
         <h2>{{count}} {{category.title}}</h2>
-        <div uk-grid>
+        <div uk-grid uk-height-match="target: .uk-card-title">
           <div class="uk-width-1-3" v-for="product in products">
             <div class="uk-card uk-card-default">
               <div class="uk-card-media-top" v-if="product.image">

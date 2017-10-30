@@ -24,9 +24,9 @@
             </div>
             <hr>
             <div class="uk-float-left">
-              <a href="" class="uk-icon-button uk-margin-small-right" uk-icon="icon: twitter"></a>
-              <a href="" class="uk-icon-button  uk-margin-small-right" uk-icon="icon: facebook"></a>
-              <a href="" class="uk-icon-button" uk-icon="icon: google-plus"></a>
+              <a :href="share_twitter" class="uk-icon-button uk-margin-small-right" uk-icon="icon: twitter"></a>
+              <a :href="share_facebook" class="uk-icon-button  uk-margin-small-right" uk-icon="icon: facebook"></a>
+              <a :href="share_google" class="uk-icon-button" uk-icon="icon: google-plus"></a>
             </div>
             <div class="uk-float-right">
               <a href="#" class="uk-button uk-button-primary">Add to Card</a>
@@ -46,6 +46,11 @@
   import Footerbar from '~/components/Footerbar'
 
   export default {
+    computed: {
+      share_google () { return 'https://plus.google.com/share?url=' + process.env.url + this.$route.path },
+      share_facebook () { return 'http://www.facebook.com/sharer.php?u=' + process.env.url + this.$route.path },
+      share_twitter () { return 'https://twitter.com/home?status=' + process.env.url + this.$route.path }
+    },
     components: {
       Navbar, Footerbar
     },

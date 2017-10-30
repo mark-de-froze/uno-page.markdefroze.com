@@ -44,7 +44,7 @@
       return store.dispatch('run')
     },
     asyncData ({ params, error }) {
-      return axios.get('/site/pages/1', {params: {api_key: process.env.apiKey}})
+      return axios.get('/site/pages/' + process.env.apiKey, {params: {api_key: process.env.apiKey}})
         .then((res) => {
           return { page: res.data }
         })
